@@ -1,13 +1,17 @@
 package Entidades;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class Usuario {
-    public String nome;
-    public int matricula;
-    public Horario horario;
+    protected String nome;
+    protected int matricula;
+    protected Horario horario;
 
-public  getDiciplina();
+
+    public List<Disciplina> getDisciplinas() {
+        return null;
+    }
 
 }

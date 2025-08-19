@@ -2,12 +2,12 @@ package Entidades;
 
 import java.util.List;
 
-public class Diciplina {
+public class Disciplina {
     public String nome;
     public Professor professorPrincipal;
     public List<Aluno> alunos;
 
-    public Diciplina() {}
+    public Disciplina() {}
 
     public int getQntdAlunos() {
         return alunos.size();
