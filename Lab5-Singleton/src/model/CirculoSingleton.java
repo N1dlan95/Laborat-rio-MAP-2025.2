@@ -24,11 +24,38 @@ public class CirculoSingleton {
         return uniqueInstance;
     }
 
-public static CirculoSingleton getInstance(double raio){
+    public static CirculoSingleton getInstance(double raio){
         if(uniqueInstance ==null){
             uniqueInstance = new CirculoSingleton(raio);
         }
 
         return uniqueInstance;
     }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+        this.area = Math.PI*Math.pow(radius, 2);
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("CirculoSingleton{");
+        sb.append("radius=").append(radius);
+        sb.append(", area=").append(area);
+        sb.append('}');
+        return sb.toString();
+    }
+
+
+
+    
 }
