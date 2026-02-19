@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Quadrado {
     private double side;
     private static int numInstances;
-    private static ArrayList<Quadrado> instances;
+    private static ArrayList<Quadrado> instances = new ArrayList<>();
+
 
     private Quadrado(){
 
@@ -20,7 +21,7 @@ public class Quadrado {
         System.out.println("this class have now"+ numInstances+1 + "Instances");
         instances.add(new Quadrado());
         numInstances+=1;
-        return instances.get(numInstances);
+        return instances.get(numInstances - 1);
     }
 
         public static Quadrado getInstance(double value){
@@ -28,8 +29,8 @@ public class Quadrado {
         System.out.println("this class have now"+ numInstances+1 + "Instances");
         instances.add(new Quadrado(value));
         numInstances+=1;
-        return instances.get(numInstances);
-    }
+            return instances.get(numInstances - 1);
+        }
 
     @Override
     public String toString() {
