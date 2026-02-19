@@ -1,4 +1,4 @@
-package model;
+package aplicacao.model;
 import java.util.ArrayList;
 
 
@@ -24,13 +24,25 @@ public class Quadrado {
         return instances.get(numInstances - 1);
     }
 
-        public static Quadrado getInstance(double value){
+    public static Quadrado getInstance(double value){
 
         System.out.println("this class have now"+ numInstances+1 + "Instances");
         instances.add(new Quadrado(value));
         numInstances+=1;
             return instances.get(numInstances - 1);
-        }
+    }
+
+    public void setSide(double value){
+        this.side = value;
+    }
+
+    public double getArea(){
+        return this.side*this.side;
+    }
+
+    public double getPerimetro(){
+        return this.side * 4;
+    }
 
     @Override
     public String toString() {

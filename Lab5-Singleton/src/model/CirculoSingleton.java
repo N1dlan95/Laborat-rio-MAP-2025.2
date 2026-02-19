@@ -1,4 +1,4 @@
-package model;
+package aplicacao.model;
 
 public class CirculoSingleton {
     private static CirculoSingleton uniqueInstance = null;

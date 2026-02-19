@@ -1,10 +1,10 @@
 package aplicacao;
 
-import model.CirculoSingleton;
-import model.EquilateralTriangle;
-import model.IsoscelesTriangle;
-import model.RightTriangle;
-import model.Quadrado;
+import aplicacao.model.CirculoSingleton;
+import aplicacao.model.EquilateralTriangle;
+import aplicacao.model.IsoscelesTriangle;
+import aplicacao.model.RightTriangle;
+import aplicacao.model.Quadrado;
 
 public class aplicacao {
 
