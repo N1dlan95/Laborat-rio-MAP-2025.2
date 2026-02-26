@@ -5,7 +5,7 @@ import Interfaces.VisitorIF;
 
 public class Trapezio implements ElementoIF {
 
-    double baseMaior, baseMenor, altura;
+    private double baseMaior, baseMenor, altura;
 
     public Trapezio(double bMaior, double bMenor, double altura){
         this.baseMaior = bMaior;
@@ -21,7 +21,7 @@ public class Trapezio implements ElementoIF {
     public void setBaseMenor(double b){ this.baseMenor = b; }
     public void setAltura(double a){ this.altura = a; }
 
-    public void aceitaVisita(VisitorIF v){
-        v.visitaTrapezio(this);
+    public double aceitaVisita(VisitorIF v){
+        return v.visitaTrapezio(this);
     }
 }

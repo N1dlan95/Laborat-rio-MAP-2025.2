@@ -7,9 +7,9 @@ import Model.Triangulo;
 
 public interface VisitorIF {
 
-    void visitaCirculo(Circulo c);
-    void visitaRetangulo(Retangulo r);
-    void visitaTriangulo(Triangulo t);
-    void visitaTrapezio(Trapezio tz);
+    double visitaCirculo(Circulo c);
+    double visitaRetangulo(Retangulo r);
+    double visitaTriangulo(Triangulo t);
+    double visitaTrapezio(Trapezio tz);
 
 }

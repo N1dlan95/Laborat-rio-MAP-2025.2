@@ -5,7 +5,7 @@ import Interfaces.VisitorIF;
 
 public class Triangulo implements ElementoIF {
 
-    double base, altura;
+    private double base, altura;
 
     public Triangulo(double base, double altura){
         this.base = base;
@@ -18,7 +18,7 @@ public class Triangulo implements ElementoIF {
     public void setBase(double base){ this.base = base; }
     public void setAltura(double altura){ this.altura = altura; }
 
-    public void aceitaVisita(VisitorIF v){
-        v.visitaTriangulo(this);
+    public double aceitaVisita(VisitorIF v){
+        return v.visitaTriangulo(this);
     }
 }

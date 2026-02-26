@@ -5,7 +5,7 @@ import Interfaces.VisitorIF;
 
 public class Circulo implements ElementoIF {
 
-    double raio;
+    private double raio;
 
     public Circulo(double raio){
         this.raio = raio;
@@ -19,7 +19,7 @@ public class Circulo implements ElementoIF {
         this.raio = raio;
     }
 
-    public void aceitaVisita(VisitorIF v){
-        v.visitaCirculo(this);
+    public double aceitaVisita(VisitorIF v){
+         return v.visitaCirculo(this);
     }
 }

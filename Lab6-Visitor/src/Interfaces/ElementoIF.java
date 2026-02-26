@@ -1,5 +1,5 @@
 package Interfaces;
 
 public interface ElementoIF {
-    void aceitaVisita(VisitorIF v);
+    double aceitaVisita(VisitorIF v);
 }
