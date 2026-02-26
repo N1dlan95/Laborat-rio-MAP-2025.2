@@ -1,22 +1,25 @@
 package Model;
-import Interfaces.*;
 
-public class Circulo implements FigurasConcretas {
-    private double raio;
+import Interfaces.ElementoIF;
+import Interfaces.VisitorIF;
 
-    public Circulo(double raio) {
+public class Circulo implements ElementoIF {
+
+    double raio;
+
+    public Circulo(double raio){
         this.raio = raio;
     }
 
-    public double getRaio() {
+    public double getRaio(){
         return raio;
     }
 
-    public void aceitaVisitantes(VisitorIF visitante) {
-        visitante.visitaCirculo(this);
+    public void setRaio(double raio){
+        this.raio = raio;
     }
 
-    public void setRaio(double raio) {
-        this.raio = raio;
+    public void aceitaVisita(VisitorIF v){
+        v.visitaCirculo(this);
     }
 }

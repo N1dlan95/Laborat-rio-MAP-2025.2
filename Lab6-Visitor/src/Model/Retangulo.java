@@ -1,33 +1,24 @@
 package Model;
-import Interfaces.*;
 
-public class Retangulo implements FigurasConcretas {
-    private double largura;
-    private double altura;
+import Interfaces.ElementoIF;
+import Interfaces.VisitorIF;
 
-    public Retangulo(double largura, double altura) {
+public class Retangulo implements ElementoIF {
+
+    double largura, altura;
+
+    public Retangulo(double largura, double altura){
         this.largura = largura;
         this.altura = altura;
     }
 
-    public double getLargura() {
-        return largura;
-    }
+    public double getLargura(){ return largura; }
+    public double getAltura(){ return altura; }
 
-    public double getAltura() {
-        return altura;
-    }
+    public void setLargura(double largura){ this.largura = largura; }
+    public void setAltura(double altura){ this.altura = altura; }
 
-    public void aceitaVisitantes(VisitorIF visitante) {
-        visitante.visitaRetangulo(this);
+    public void aceitaVisita(VisitorIF v){
+        v.visitaRetangulo(this);
     }
-
-    public void setLargura(double largura) {
-        this.largura = largura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
 }
