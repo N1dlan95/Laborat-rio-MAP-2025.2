@@ -11,7 +11,6 @@ public class App {
         ElementoIF r = new Retangulo(4,6);
         ElementoIF t = new Triangulo(3,4);
         ElementoIF tz = new Trapezio(10,6,4);
-
         VisitorIF desenhar = new VisitorDesenhar();
         VisitorIF area = new VisitorArea();
         VisitorIF perimetro = new VisitorPerimetro();
