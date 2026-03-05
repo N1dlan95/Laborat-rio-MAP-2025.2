@@ -7,22 +7,24 @@ import java.util.ListIterator;
 import java.util.Map;
 
 public class MapToListAdapter<V> implements List<V> {
-    private Map<String, String> map;
+    private Map<Integer, V> map;
     
-    public MapToListAdapter(Map<String, String> map) {
+    public MapToListAdapter(Map<Integer, V> map) {
         this.map = map;
     }
     
     @Override
     public boolean add(Object V) {
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        int index = this.size();
+        this.map.put(index, (V) V);
+        return true;
     }
     
 
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        map.clear();
     }
 
     
@@ -33,12 +35,12 @@ public class MapToListAdapter<V> implements List<V> {
 
     @Override
     public boolean equals(Object o) {
-        throw new UnsupportedOperationException("Unimplemented method 'equals'");
+        return map.equals(o);
     }
 
     @Override
     public V get(int index) {
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        return (V) map.get(index);
     }
     
     @Override
@@ -48,12 +50,12 @@ public class MapToListAdapter<V> implements List<V> {
     
     @Override
     public Iterator<V> iterator() {
-        throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+        throw new UnsupportedOperationException("Não ha suporte para o retorno de um iterator");
     }
 
     @Override
     public boolean remove(Object o) {
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        return map.remove(o) != null;
     }
 
     @Override
@@ -74,7 +76,7 @@ public class MapToListAdapter<V> implements List<V> {
     }
 
 
-// Other methods from the List interface can be implemented similarly
+    // Other methods from the List interface can be implemented similarly
 
     @Override
     public boolean containsAll(Collection<?> c) {

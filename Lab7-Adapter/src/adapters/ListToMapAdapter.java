@@ -1,13 +1,10 @@
 package adapters;
 
-import java.util.Map;
-import java.util.List;
-import java.util.Set;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.AbstractSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
-import java.util.NoSuchElementException;
+import java.util.Set;
 
 public class ListToMapAdapter<V> implements Map<Integer, V> {
 
@@ -20,13 +17,8 @@ public class ListToMapAdapter<V> implements Map<Integer, V> {
     // Métodos principais do Map
 
     @Override
-    public int size() {
-        return list.size();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return list.isEmpty();
+    public void clear() {
+        list.clear();
     }
 
     @Override
@@ -34,10 +26,23 @@ public class ListToMapAdapter<V> implements Map<Integer, V> {
         Integer idx = toIndex(key);
         return idx != null && idx >= 0 && idx < list.size();
     }
-
+    
     @Override
     public boolean containsValue(Object value) {
         return list.contains(value);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof Map<?, ?> other)) return false;
+        if (other.size() != this.size()) return false;
+
+        for (int i = 0; i < list.size(); i++) {
+            Object ov = other.get(i);
+            if (!Objects.equals(list.get(i), ov)) return false;
+        }
+        return true;
     }
 
     @Override
@@ -46,6 +51,14 @@ public class ListToMapAdapter<V> implements Map<Integer, V> {
         if (idx == null || idx < 0 || idx >= list.size()) return null;
         return list.get(idx);
     }
+
+    @Override
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
+    
+    
+
 
     @Override
     public V put(Integer key, V value) {
@@ -57,7 +70,7 @@ public class ListToMapAdapter<V> implements Map<Integer, V> {
         if (idx < list.size()) {
             return list.set(idx, value);
         }
-
+        
         if (idx == list.size()) {
             list.add(value);
             return null;
@@ -72,6 +85,16 @@ public class ListToMapAdapter<V> implements Map<Integer, V> {
         if (idx == null || idx < 0 || idx >= list.size()) return null;
         return list.remove((int) idx);
     }
+    @Override
+    public int size() {
+        return list.size();
+    }
+    
+    @Override
+    public Collection<V> values() {
+        // A própria lista já é uma Collection;
+        return list;
+    }
 
     @Override
     public void putAll(Map<? extends Integer, ? extends V> m) {
@@ -80,152 +103,21 @@ public class ListToMapAdapter<V> implements Map<Integer, V> {
         }
     }
 
-    @Override
-    public void clear() {
-        list.clear();
-    }
+
 
     @Override
     public Set<Integer> keySet() {
-        return new AbstractSet<>() {
-            @Override
-            public Iterator<Integer> iterator() {
-                return new Iterator<>() {
-                    private int i = 0;
-                    private int last = -1;
-
-                    @Override
-                    public boolean hasNext() {
-                        return i < list.size();
-                    }
-
-                    @Override
-                    public Integer next() {
-                        if (!hasNext()) throw new NoSuchElementException();
-                        last = i;
-                        return i++;
-                    }
-
-                    @Override
-                    public void remove() {
-                        if (last < 0) throw new IllegalStateException();
-                        list.remove(last);
-                        i = last;
-                        last = -1;
-                    }
-                };
-            }
-
-            @Override
-            public int size() {
-                return list.size();
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                return containsKey(o);
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                Integer idx = toIndex(o);
-                if (idx == null || idx < 0 || idx >= list.size()) return false;
-                list.remove((int) idx);
-                return true;
-            }
-
-            @Override
-            public void clear() {
-                list.clear();
-            }
-        };
+        throw new UnsupportedOperationException("Unimplemented method 'keyset'");
     }
 
-    @Override
-    public Collection<V> values() {
-        // A própria lista já é uma Collection;
-        return list;
-    }
 
     @Override
     public Set<Entry<Integer, V>> entrySet() {
-        return new AbstractSet<>() {
-            @Override
-            public Iterator<Entry<Integer, V>> iterator() {
-                return new Iterator<>() {
-                    private int i = 0;
-                    private int last = -1;
-
-                    @Override
-                    public boolean hasNext() {
-                        return i < list.size();
-                    }
-
-                    @Override
-                    public Entry<Integer, V> next() {
-                        if (!hasNext()) throw new NoSuchElementException();
-                        last = i;
-                        int currentIndex = i++;
-
-                        return new SimpleEntry<Integer, V>(currentIndex, list.get(currentIndex)) {
-                            @Override
-                            public V setValue(V value) {
-                                V old = list.set(currentIndex, value);
-                                super.setValue(value);
-                                return old;
-                            }
-
-                            @Override
-                            public V getValue() {
-                                // mantém sempre sincronizado com a lista
-                                return list.get(currentIndex);
-                            }
-                        };
-                    }
-
-                    @Override
-                    public void remove() {
-                        if (last < 0) throw new IllegalStateException();
-                        list.remove(last);
-                        i = last;
-                        last = -1;
-                    }
-                };
-            }
-
-            @Override
-            public int size() {
-                return list.size();
-            }
-
-            @Override
-            public void clear() {
-                list.clear();
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                if (!(o instanceof Entry<?, ?> e)) return false;
-                Integer k = toIndex(e.getKey());
-                if (k == null || k < 0 || k >= list.size()) return false;
-                return Objects.equals(list.get(k), e.getValue());
-            }
-        };
+        throw new UnsupportedOperationException("Unimplemented method 'entrySet'");
     }
 
     // equals/hashCode do Map
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) return true;
-        if (!(o instanceof Map<?, ?> other)) return false;
-        if (other.size() != this.size()) return false;
 
-        for (int i = 0; i < list.size(); i++) {
-            Object ov = other.get(i);
-            if (!Objects.equals(list.get(i), ov)) return false;
-        }
-        return true;
-    }
 
     @Override
     public int hashCode() {
