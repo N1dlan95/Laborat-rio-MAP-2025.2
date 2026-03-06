@@ -30,7 +30,7 @@ public class MapToListAdapter<V> implements List<V> {
     
     @Override
     public boolean contains(Object o) {
-        return map.containsKey(o);
+        return map.containsValue(o);
     }
 
     @Override
