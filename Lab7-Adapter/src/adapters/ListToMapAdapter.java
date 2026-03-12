@@ -81,8 +81,8 @@ public class ListToMapAdapter<V> implements Map<Integer, V> {
 
     @Override
     public V remove(Object key) {
-        Integer idx = toIndex(key);
-        if (idx == null || idx < 0 || idx >= list.size()) return null;
+        Integer idx = list.indexOf(key);;
+        if (idx < 0 || idx >= list.size()) return null;
         return list.remove((int) idx);
     }
     @Override

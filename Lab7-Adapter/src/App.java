@@ -69,7 +69,6 @@ public class App {
 
         minhaListaAdaptada.add(15);
         minhaListaAdaptada.add(20);
-        minhaListaAdaptada.remove(2);
         System.out.println("O tamanho do map é: " + minhaListaAdaptada.size());
         System.out.println("O map esta vazio?: " + minhaListaAdaptada.isEmpty());
         System.out.println("O valor para a chave 1 é: " + minhaListaAdaptada.get(1));
