@@ -1,4 +1,6 @@
-package Produtos;
+package src.ProdutosConcretos;
+
+import src.ProdutosAbstratos.Ovo;
 
 public class OvoCapoeira extends Ovo {
     @Override

@@ -1,4 +1,4 @@
-package Produtos;
+package src.ProdutosAbstratos;
 
 public abstract class Ovo {
     @Override

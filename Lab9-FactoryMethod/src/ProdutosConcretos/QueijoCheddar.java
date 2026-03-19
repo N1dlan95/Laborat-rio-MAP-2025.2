@@ -1,4 +1,6 @@
-package Produtos;
+package src.ProdutosConcretos;
+
+import src.ProdutosAbstratos.Queijo;
 
 public class QueijoCheddar extends Queijo {
     @Override

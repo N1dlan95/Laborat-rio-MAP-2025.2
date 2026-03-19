@@ -1,4 +1,6 @@
-package Produtos;
+package src.ProdutosConcretos;
+
+import src.ProdutosAbstratos.Presunto;
 
 public class PresuntoPeru extends Presunto {
     @Override

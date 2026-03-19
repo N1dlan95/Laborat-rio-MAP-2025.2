@@ -1,4 +1,4 @@
-package Produtos;
+package src.ProdutosConcretos;
 
 public class Tomate {
     @Override
