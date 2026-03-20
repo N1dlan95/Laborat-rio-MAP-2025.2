@@ -41,13 +41,13 @@ public class SanduicheGourmet implements Sanduiche{
     }
 
     @Override
-    public void montar() {
+    public String montar() {
         this.adicionarPao();
         this.adicionarPresunto();
         this.adicionarQueijo();
         this.adicionarOvo();
 
-        System.out.println("Esse sanduiche possui os seguintes ingredientes: " + this.pao.toString() + ", " + this.presunto.toString() +
-                ", " + this.queijo.toString() + " e " + this.ovo.toString());
+        return "Esse sanduiche possui os seguintes ingredientes: " + this.pao.toString() + ", " + this.presunto.toString() +
+                ", " + this.queijo.toString() + " e " + this.ovo.toString();
     }
 }

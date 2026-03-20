@@ -17,8 +17,8 @@ public class Main {
         Sanduiche sanduiche3 = new SanduicheIntegral();
 
 
-        sanduiche1.montar();
-        sanduiche2.montar();
-        sanduiche3.montar();
+        System.out.println(sanduiche1.montar());
+        System.out.println(sanduiche2.montar());
+        System.out.println(sanduiche3.montar());
     }
 }

@@ -6,5 +6,5 @@ import src.ProdutosAbstratos.Queijo;
 
 public interface Sanduiche {
 
-    void montar();
+    String montar();
 }

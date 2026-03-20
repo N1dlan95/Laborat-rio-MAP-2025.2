@@ -33,12 +33,12 @@ public class SanduicheIntegral implements Sanduiche{
     }
 
     @Override
-    public void montar() {
+    public String montar() {
         this.adicionarPao();
         this.adicionarPresunto();
         this.adicionarQueijo();
 
-        System.out.println("Esse sanduiche possui os seguintes ingredientes: " + this.pao.toString() + ", " + this.presunto.toString() + " e "+
-                this.queijo.toString());
+        return"Esse sanduiche possui os seguintes ingredientes: " + this.pao.toString() + ", " + this.presunto.toString() + " e "+
+                this.queijo.toString();
     }
 }

@@ -7,6 +7,7 @@ import src.ProdutosAbstratos.Queijo;
 import src.ProdutosConcretos.*;
 
 public class SanduicheCompleto implements  Sanduiche{
+    public Object Presunto;
     private Pao pao;
     private Presunto presunto;
     private Queijo queijo;
@@ -44,14 +45,14 @@ public class SanduicheCompleto implements  Sanduiche{
     }
 
     @Override
-    public void montar(){
+    public String montar(){
         this.adicionarPao();
         this.adicionarPresunto();
         this.adicionarQueijo();
         this.adicionarOvo();
         this.adicionarTomate();
 
-        System.out.println("Esse sanduíche possui os seguintes ingredientes: " + this.pao.toString() + ", " + this.queijo.toString() + ", " + this.presunto.toString()
-        + ", " + this.ovo.toString() + " e " + this.tomate.toString());
+        return "Esse sanduíche possui os seguintes ingredientes: " + this.pao.toString() + ", " + this.queijo.toString() + ", " + this.presunto.toString()
+        + ", " + this.ovo.toString() + " e " + this.tomate.toString();
     }
 }
